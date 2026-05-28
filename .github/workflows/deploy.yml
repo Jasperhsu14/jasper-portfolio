@@ -18,11 +18,11 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 22  # 使用穩定的 Node.js 22 音速版，避開 20 版本過期警告
+          # 拿掉了 cache: npm 設定，即使沒有 package-lock.json 也能順暢運作！
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install # 自動下載所有套件
 
       - name: Build
         run: npm run build
@@ -31,4 +31,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist # Vite 編譯後的輸出資料夾
-          branch: gh-pages # 自動部署到這個分支
+          branch: gh-pages # 要部署的目的地分支（GitHub Pages 專用）
