@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import hsuImage from './hsu.png';
+import hsuImage from './hsu.webp';
 import { 
   Linkedin, 
   Mail, 
